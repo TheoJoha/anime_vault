@@ -16,9 +16,7 @@ function LoadMore() {
 
   useEffect(() => {
     if(inView) {
-      alert("loadMore");
-      fetchAnime(page)
-        .then((res) => {
+      fetchAnime(page).then((res) => {
           setData([...data, ...res])
           page++;
         })
@@ -31,7 +29,7 @@ function LoadMore() {
         {data}
       </section>
       <section className="flex justify-center items-center w-full">
-        <div>
+        <div ref={ref}>
           <Image
             src="./spinner.svg"
             alt="spinner"
